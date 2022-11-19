@@ -1,0 +1,20 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "centos" do |proxy|
+    proxy.vm.box = "centos/7"
+    proxy.vm.hostname = "centosHost"
+    proxy.vm.provider :virtualbox do |v|
+      v.memory = 512
+      v.cpus = 2
+    end
+  end
+
+  config.vm.define "ubuntu" do |app|
+    app.vm.box = "ubuntu/focal64"
+    app.vm.hostname = "ubuntuHost"
+    app.vm.provider :virtualbox do |v|
+      v.memory = 512
+      v.cpus = 2
+    end
+  end
+end
