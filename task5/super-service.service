@@ -1,0 +1,9 @@
+[Unit]
+Description=Super service
+
+[Service]
+ExecStart=/vagrant/super-service.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
