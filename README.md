@@ -13,3 +13,15 @@
 2) Execute `vagrant ssh ubuntu`
 3) Execute `sudo -i`
 4) Execute `tail -f /var/log/sysinfo.log`
+
+## Task 4
+1) Execute `vagrant up` in `task4/` folder
+2) Execute `vagrant ssh ubuntu`
+
+*Useful commands*
+
+* `su [adminuser | poweruser]`
+* `ls -l softlink`
+* `id`
+* `whoami`
+* `cd /home/adminuser` - by poweruser
