@@ -1,0 +1,11 @@
+[Unit]
+Description=Mover service
+
+[Service]
+ExecStart=/bin/bash /vagrant/mover-service.sh
+Restart=on-failure
+RestartSec=5s
+User=root
+
+[Install]
+WantedBy=multi-user.target
