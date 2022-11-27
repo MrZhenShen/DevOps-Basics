@@ -31,3 +31,13 @@
 2) Execute `vagrant ssh`
 3) Execute `touch folder1/file` to create file in folder1
 4) Execute `ls [folder1 | folder2]`
+
+## Task 6
+1) Execute `vagrant up` in `task6/` folder
+2) Execute `vagrant ssh`
+
+* `lsblk`
+* `pvscan` - list of physical disks with it's Volume Group
+* `lvscan`
+* `mount` - mounted toms
+* `df -h`
