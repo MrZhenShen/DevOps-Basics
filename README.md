@@ -29,5 +29,5 @@
 ## Task 5
 1) Execute `vagrant up` in `task5/` folder
 2) Execute `vagrant ssh`
-3) Execute `touch folder1/file`
-4) Execuet `ls [folder1 | folder2]`
+3) Execute `touch folder1/file` to create file in folder1
+4) Execute `ls [folder1 | folder2]`
