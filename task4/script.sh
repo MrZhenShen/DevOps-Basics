@@ -1,8 +1,9 @@
 #!/bin/bash
 PASSWORD=$(openssl rand -base64 12)
+PASSWORD_HASH=$(openssl passwd -6 -salt qwerty $PASSWORD)
 echo "Attention! Remember your password: $PASSWORD"
 
-useradd -p $PASSWORD -m adminuser
+useradd -p $PASSWORD_HASH -m adminuser
 usermod -aG sudo adminuser
 useradd -m poweruser
 passwd -d poweruser
