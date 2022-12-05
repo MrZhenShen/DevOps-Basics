@@ -43,25 +43,16 @@
 * `df -h`
 
 ## Task 7
-1) Execute `vagrant up` in `task7/` folder
-2) Execute `vagrant ssh`
+* R_PORT (Remote Port)
+* L_PORT (Local Port)
+* SERVER
 
-* `ssh -A -p 3722 root@yoko.ukrtux.com` - enter to the vm via port
-* `ssh -A -D8899 -p 3722 root@yoko.ukrtux.com`
+### Commands
+* `ssh -A -p [R_PORT] [SERVER]` - enter to the vm via port
+* `ssh -A -D8899 -p [R_PORT] [SERVER]` - local port forwarding
+* `ssh -R 1[R_PORT]:localhost:[L_PORT] -p [R_PORT] [SERVER]` - remote port forwarding
+* `bmon` - package trafic
+* Open in browser `[SERVER without domain]:1[R_PORT]` to see localhost content from remote
 
-* `ssh -R 13722:localhost:8888 -p 3722 root@yoko.ukrtux.com`
-* `bmon`
-* (Open in brower)[50.31.252.226:13722]
-
-[Get IP](https://www.getip.org/)
-
-
-* `host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'`
-
-
-
-python3 -m http.server 
-* `ssh -R 13822:localhost:8000 -p 3822 root@yoko.ukrtux.com` - local port forwarding
-
-* IP:13822 #`ssh -p 13822 zhenia@localhost` - remote port forwarding
-
+### Links
+* [Get IP](https://www.getip.org/)
