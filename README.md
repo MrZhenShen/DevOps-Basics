@@ -41,3 +41,18 @@
 * `lvscan`
 * `mount` - mounted toms
 * `df -h`
+
+## Task 7
+* R_PORT (Remote Port)
+* L_PORT (Local Port)
+* SERVER
+
+### Commands
+* `ssh -A -p [R_PORT] [SERVER]` - enter to the vm via port
+* `ssh -A -D8899 -p [R_PORT] [SERVER]` - local port forwarding
+* `ssh -R 1[R_PORT]:localhost:[L_PORT] -p [R_PORT] [SERVER]` - remote port forwarding
+* `bmon` - package trafic
+* Open in browser `[SERVER without domain]:1[R_PORT]` to see localhost content from remote
+
+### Links
+* [Get IP](https://www.getip.org/)
