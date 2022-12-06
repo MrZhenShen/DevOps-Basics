@@ -1,20 +1,28 @@
 #!/bin/bash
-setenforce 0
-
 yum -y update
-yum install httpd -y
-yum install mod_ssl -y
+yum -y install httpd mod_ssl
+yum install firewalld
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/private/apache-selfsigned.key -out /etc/pki/tls/certs/apache-selfsigned.crt -subj "/C=UA/ST=Lvivska/L=Lviv/O=ITStep/OU=University/CN=127.0.0.1"
+mkdir /var/www/zhen.com
 
-mkdir -p /var/www/zhenshen.com/html/
-cp /vagrant/www-content/index.html /var/www/zhenshen.com/html/
-cp /vagrant/zhenshen.conf /etc/httpd/conf.d/
+cp -f /vagrant/www-content/index.html /usr/share/httpd/noindex/index.html
 
-# cat /vagrant/helper.txt >> /etc/httpd/conf/httpd.conf
+systemctl enable firewalld
+systemctl start firewalld
+firewall-cmd --state
 
 systemctl start httpd
 systemctl enable httpd
 
+cp -f /vagrant/localhost.conf /etc/httpd/conf.d/
+
 apachectl configtest
 systemctl reload httpd
+
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/private/apache-selfsigned.key -out /etc/pki/tls/certs/apache-selfsigned.crt -subj "/C=UA/ST=Lvivska/L=Lviv/O=ITStep/OU=University/CN=127.0.0.1"
