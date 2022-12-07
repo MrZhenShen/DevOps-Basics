@@ -56,3 +56,10 @@
 
 ### Links
 * [Get IP](https://www.getip.org/)
+
+## Task 8
+1) Execute `vagrant up` in `task8/` folder
+2) Execute `vagrant ssh`
+3) Open the following links:
+* [HTTP](http://localhost:8888)
+* [HTTPS](https://localhost:8443)
